@@ -1,11 +1,10 @@
 extern crate cc;
-extern crate dunce;
 
 use std::env;
 use std::path::Path;
 
 fn main() {
-    let includepath = dunce::canonicalize(Path::new("include")).unwrap();
+    let includepath = std::fs::canonicalize(Path::new("include")).unwrap();
     println!("cargo:includepath={}", includepath.to_str().unwrap());
 
     let cfiledir = Path::new("cfiles");
